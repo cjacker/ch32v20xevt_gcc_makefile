@@ -24,7 +24,8 @@ fi
 PART=$1
 FLASHSIZE=
 RAMSIZE=
-STARTUP_ASM=                                                                            ZIPFILE=
+STARTUP_ASM=
+ZIPFILE=
 
 FOUND="f"
 
