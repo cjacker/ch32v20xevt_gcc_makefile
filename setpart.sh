@@ -74,11 +74,11 @@ fi
 if [[ $PART = ch32v2* ]]; then
 	setpart ch32v2
   if [ $STARTUP_ASM == "startup_ch32v20x_D8.S" ]; then
-    sed -i "s/^TARGET_DEFS = .*/TARGET_DEFS = -DCH32V20x_D8/g" Makefile
+    sed -i "s/^TARGET_DEFS =.*/TARGET_DEFS = -DCH32V20x_D8/g" Makefile
   elif [ $STARTUP_ASM == "startup_ch32v20x_D8W.S" ]; then
-    sed -i "s/^TARGET_DEFS = .*/TARGET_DEFS = -DCH32V20x_D8W/g" Makefile
+    sed -i "s/^TARGET_DEFS =.*/TARGET_DEFS = -DCH32V20x_D8W/g" Makefile
   else
-    sed -i "s/^TARGET_DEFS = .*/TARGET_DEFS = /g" Makefile
+    sed -i "s/^TARGET_DEFS =.*/TARGET_DEFS = /g" Makefile
   fi
 fi
 
