@@ -2,7 +2,7 @@
 # target
 ######################################
 TARGET = ch32v203g6u6
-TARGET_DEFS =
+TARGET_DEFS = 
 
 ######################################
 # building variables
@@ -53,7 +53,7 @@ User/ch32v20x_it.c \
 
 # ASM sources
 ASM_SOURCES =  \
-CH32V_firmware_library/Startup/startup_ch32v20x_D8W.S
+CH32V_firmware_library/Startup/startup_ch32v20x_D6.S
 
 #######################################
 # binaries
