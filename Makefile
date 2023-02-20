@@ -2,7 +2,7 @@
 # target
 ######################################
 TARGET = ch32v203g6u6
-
+TARGET_DEFS =
 
 ######################################
 # building variables
@@ -103,6 +103,7 @@ endif
 # Generate dependency information
 CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 
+CFLAGS += $(TARGET_DEFS)
 
 #######################################
 # LDFLAGS
