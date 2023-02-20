@@ -22,9 +22,12 @@ This firmware library support below parts from WCH:
 - ch32v208rbt6
 - ch32v208wbu6
 
-The default part is set to 'ch32v203g6u6'(FlappyBoard), you can change it with `./setpart.sh <part>`. the corresponding 'Link.ld' will update automatically from the template.
+The default part is set to 'ch32v203g6u6'(FlappyBoard), you can change it with `./setpart.sh <part>`, it will setup correct flash/ram size, linker script and startup file automatically.
 
-The default 'User' codes is 'GPIO_Toggle' from the EVT example, all examples shipped in original EVT package provided in 'Examples' dir.
+All examples shipped in original EVT package provided in 'Examples' dir.
+
+The default 'User' codes is 'GPIO_Toggle' example, the default system frequency is set to 'SYSCLK_FREQ_96MHz_HSI' in 'User/system_ch32v20x.c'.
+
 
 To build the project, type `make`.
 
