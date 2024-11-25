@@ -2,7 +2,7 @@
 # target
 ######################################
 TARGET = ch32v203g6u6
-TARGET_DEFS = 
+TARGET_DEFS=
 
 ######################################
 # building variables
@@ -10,7 +10,7 @@ TARGET_DEFS =
 # debug build?
 DEBUG = 1
 # optimization for size
-OPT = -Og
+OPT = -Os
 
 
 #######################################
@@ -24,30 +24,30 @@ BUILD_DIR = build
 ######################################
 # C sources
 C_SOURCES = \
-CH32V_firmware_library/Debug/debug.c \
-CH32V_firmware_library/Core/core_riscv.c \
-CH32V_firmware_library/Peripheral/src/ch32v20x_exti.c \
 CH32V_firmware_library/Peripheral/src/ch32v20x_dma.c \
+CH32V_firmware_library/Peripheral/src/ch32v20x_wwdg.c \
+CH32V_firmware_library/Peripheral/src/ch32v20x_adc.c \
 CH32V_firmware_library/Peripheral/src/ch32v20x_misc.c \
-CH32V_firmware_library/Peripheral/src/ch32v20x_rtc.c \
-CH32V_firmware_library/Peripheral/src/ch32v20x_crc.c \
-CH32V_firmware_library/Peripheral/src/ch32v20x_gpio.c \
-CH32V_firmware_library/Peripheral/src/ch32v20x_dbgmcu.c \
-CH32V_firmware_library/Peripheral/src/ch32v20x_can.c \
+CH32V_firmware_library/Peripheral/src/ch32v20x_bkp.c \
 CH32V_firmware_library/Peripheral/src/ch32v20x_opa.c \
 CH32V_firmware_library/Peripheral/src/ch32v20x_i2c.c \
-CH32V_firmware_library/Peripheral/src/ch32v20x_spi.c \
-CH32V_firmware_library/Peripheral/src/ch32v20x_bkp.c \
-CH32V_firmware_library/Peripheral/src/ch32v20x_adc.c \
-CH32V_firmware_library/Peripheral/src/ch32v20x_tim.c \
 CH32V_firmware_library/Peripheral/src/ch32v20x_usart.c \
-CH32V_firmware_library/Peripheral/src/ch32v20x_pwr.c \
-CH32V_firmware_library/Peripheral/src/ch32v20x_wwdg.c \
-CH32V_firmware_library/Peripheral/src/ch32v20x_rcc.c \
-CH32V_firmware_library/Peripheral/src/ch32v20x_flash.c \
+CH32V_firmware_library/Peripheral/src/ch32v20x_spi.c \
+CH32V_firmware_library/Peripheral/src/ch32v20x_exti.c \
+CH32V_firmware_library/Peripheral/src/ch32v20x_crc.c \
 CH32V_firmware_library/Peripheral/src/ch32v20x_iwdg.c \
-User/main.c \
+CH32V_firmware_library/Peripheral/src/ch32v20x_gpio.c \
+CH32V_firmware_library/Peripheral/src/ch32v20x_tim.c \
+CH32V_firmware_library/Peripheral/src/ch32v20x_dbgmcu.c \
+CH32V_firmware_library/Peripheral/src/ch32v20x_flash.c \
+CH32V_firmware_library/Peripheral/src/ch32v20x_rtc.c \
+CH32V_firmware_library/Peripheral/src/ch32v20x_pwr.c \
+CH32V_firmware_library/Peripheral/src/ch32v20x_can.c \
+CH32V_firmware_library/Peripheral/src/ch32v20x_rcc.c \
+CH32V_firmware_library/Core/core_riscv.c \
+CH32V_firmware_library/Debug/debug.c \
 User/system_ch32v20x.c \
+User/main.c \
 User/ch32v20x_it.c \
 
 
@@ -154,7 +154,7 @@ $(BUILD_DIR):
 # Program
 #######################################
 program: $(BUILD_DIR)/$(TARGET).elf 
-	sudo wch-openocd -f /usr/share/wch-openocd/openocd/scripts/interface/wch-riscv.cfg -c "program $(BUILD_DIR)/$(TARGET).elf verify reset exit"
+	sudo wch-openocd -f ./wch-riscv.cfg -c 'init; halt; program $(BUILD_DIR)/$(TARGET).elf verify; reset; wlink_reset_resume; exit;'
 
 isp: $(BUILD_DIR)/$(TARGET).bin
 	wchisp flash $(BUILD_DIR)/$(TARGET).bin
