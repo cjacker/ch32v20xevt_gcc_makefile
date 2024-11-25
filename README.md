@@ -22,7 +22,7 @@ This firmware library support below parts from WCH:
 - ch32v208rbt6
 - ch32v208wbu6
 
-The default part is set to 'ch32v203g6u6'(FlappyBoard), you can change it with `./setpart.sh <part>`, it will setup correct flash/ram size, linker script and startup file automatically.
+The default part is set to 'ch32v203g6u6', you can change it with `./setpart.sh <part>`, it will setup correct flash/ram size, linker script and startup file automatically.
 
 All examples shipped in original EVT package provided in 'Examples' dir.
 
