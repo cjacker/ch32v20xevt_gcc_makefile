@@ -26,7 +26,7 @@ The default part is set to 'ch32v203g6u6', you can change it with `./setpart.sh 
 
 All examples shipped in original EVT package provided in 'Examples' dir.
 
-The default 'User' codes is 'GPIO_Toggle' example, the default system frequency is set to 'SYSCLK_FREQ_96MHz_HSI' in 'User/system_ch32v20x.c'.
+The default 'User' codes is 'GPIO_Toggle' example, the default system frequency is set to 'SYSCLK_FREQ_96MHz_HSI' in 'User/system_ch32v20x.c' for [FlappyBoard](https://github.com/metro94/FlappyBoard).
 
 
 To build the project, type `make`.
