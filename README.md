@@ -28,8 +28,9 @@ All examples shipped in original EVT package provided in 'Examples' dir.
 
 The default 'User' codes is 'GPIO_Toggle' example, the default system frequency is set to 'SYSCLK_FREQ_96MHz_HSI' in 'User/system_ch32v20x.c' for [FlappyBoard](https://github.com/metro94/FlappyBoard).
 
-
 To build the project, type `make`.
+
+**IMPORTANT NOTE:** With [FlappyBoard](https://github.com/metro94/FlappyBoard), you have to set system clock to 'HSI' in 'User/system_ch32v20x.c', since it has NOT external oscillator on board. If it set to 'HSE', after programmed, the board can NOT be probed anymore with WCH-Link/E. You need use ISP mode to program a correct firmware or refer to [the tutorial](https://github.com/cjacker/opensource-toolchain-ch32v) to rescue it.
 
 ## Note
 
